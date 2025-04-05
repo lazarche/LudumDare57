@@ -17,6 +17,13 @@ public class WorldActivator : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        Vector2Int playerChunkPos = ChunkHelper.PhysicalToChunk(player.transform.position);
+
+        if (PlayerMoved(playerChunkPos))
+        {
+            CheckChunks(playerChunkPos);
+        }
     }
 
     private void FixedUpdate()
@@ -54,7 +61,7 @@ public class WorldActivator : MonoBehaviour
         }
     }
 
-    Vector2Int oldChunkPos = Vector2Int.zero;
+    Vector2Int oldChunkPos = new Vector2Int(-55, 55);
     bool PlayerMoved(Vector2Int playerChunkPos)
     {
         if (!playerChunkPos.Equals(oldChunkPos))

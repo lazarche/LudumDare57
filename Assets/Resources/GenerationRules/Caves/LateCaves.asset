@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce549903d3b0cc149abd6b6f716406db, type: 3}
-  m_Name: Air
+  m_Script: {fileID: 11500000, guid: 6bbd2ed2a3fc2b941a5d8ea3cb4967cf, type: 3}
+  m_Name: LateCaves
   m_EditorClassIdentifier: 
-  id: 0
-  blockName: Air
-  sprites:
-  - {fileID: -1007824605921987003, guid: 4db34b2ba4083f74a966fa5a58672aa9, type: 3}
-  HasCollider: 0
+  startHeight: 150
+  scale: 10
+  threshold: 0.25

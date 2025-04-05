@@ -8,6 +8,7 @@ public class Block : ScriptableObject
     public byte id;
     public string blockName;
     public Sprite[] sprites;
+    public bool HasCollider = true;
 
     List<Color[]> colors;
 
@@ -22,8 +23,14 @@ public class Block : ScriptableObject
         }
     }
 
-    public Color[] GetSprite()
+    public Color[] GetSprite(float perlin)
     {
-        return colors[Random.Range(0, sprites.Length)];
+        int index = Mathf.FloorToInt(perlin * (sprites.Length - 1));
+        return colors[index];
+    }
+
+    public override bool Equals(object other)
+    {
+        return this.id == ((Block)other).id;
     }
 }

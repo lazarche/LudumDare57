@@ -22,6 +22,7 @@ public class WorldManager : MonoBehaviour
 
     [SerializeField] WorldBuilder worldBuilder;
     [SerializeField] WorldGenerator worldGenerator;
+    public WorldMiner worldMiner;
     public WorldActivator worldActivator;
     public ChunkPooler chunkPooler;
 
@@ -29,14 +30,7 @@ public class WorldManager : MonoBehaviour
 
     void Start()
     {
-        //for (int x = 0; x < WorldSettings.WorldSizeX; x++)
-        //{
-        //    for (int y = 0; y < WorldSettings.WorldSizeY; y++)
-        //    {
-        //        Vector2Int chunkPos = new Vector2Int(x, y);
-        //        chunks.Add(chunkPos, new Chunk { position = chunkPos });
-        //    }
-        //}
+
     }
 
     public void SpawnChunk(Chunk chunk)
@@ -53,13 +47,15 @@ public class WorldManager : MonoBehaviour
     public void UpdateChunk(Chunk chunk)
     {
         worldBuilder.BuildChunk(chunk);
-        ChunkWorld chunkWorld = chunkPooler.GetChunk();
-        chunkWorld.UpdateChunk(chunk);
+        chunk.chunkWorld.UpdateChunk();
     }
 
     internal Chunk GetChunk(Vector2Int vector2Int)
     {
-        if(!chunks.ContainsKey(vector2Int))
+        if(vector2Int.x < 0 || vector2Int.x >= WorldSettings.WorldSizeX || vector2Int.y < 0 || vector2Int.y >= WorldSettings.WorldSizeY)
+            return null;
+
+        if (!chunks.ContainsKey(vector2Int))
         {
             Vector2Int chunkPos = new Vector2Int(vector2Int.x, vector2Int.y);
             chunks.Add(chunkPos, new Chunk { position = chunkPos });

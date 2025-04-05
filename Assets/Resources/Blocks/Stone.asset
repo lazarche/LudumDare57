@@ -12,9 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce549903d3b0cc149abd6b6f716406db, type: 3}
   m_Name: Stone
   m_EditorClassIdentifier: 
-  id: 2
+  id: 4
   blockName: Stone
   sprites:
-  - {fileID: 8399011212269539787, guid: bcf4660ac177a114190ce25aaef992f7, type: 3}
-  - {fileID: -1908083419, guid: bcf4660ac177a114190ce25aaef992f7, type: 3}
   - {fileID: 1165115544, guid: bcf4660ac177a114190ce25aaef992f7, type: 3}

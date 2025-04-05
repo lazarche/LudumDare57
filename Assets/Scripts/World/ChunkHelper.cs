@@ -21,11 +21,16 @@ public class ChunkHelper
     public static Vector2Int PhysicalToBlock(Vector2 position)
     {
         Vector2Int blockPos = new Vector2Int();
+
         blockPos.x = Mathf.FloorToInt(position.x / WorldSettings.BlockPhysicalSize);
         blockPos.y = Mathf.FloorToInt(-position.y / WorldSettings.BlockPhysicalSize);
 
-        blockPos.x = blockPos.x % WorldSettings.ChunkSize;
-        blockPos.y = blockPos.y % WorldSettings.ChunkSize;
+        blockPos.x = Mathf.FloorToInt(Mathf.Repeat(blockPos.x, WorldSettings.ChunkSize));
+        blockPos.y = Mathf.FloorToInt(Mathf.Repeat(blockPos.y, WorldSettings.ChunkSize));
+
+        blockPos.y = WorldSettings.ChunkSize - 1 - blockPos.y;
+
         return blockPos;
     }
+
 }

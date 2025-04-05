@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce549903d3b0cc149abd6b6f716406db, type: 3}
-  m_Name: Air
+  m_Name: Gravel
   m_EditorClassIdentifier: 
-  id: 0
-  blockName: Air
+  id: 3
+  blockName: Gravel
   sprites:
-  - {fileID: -1007824605921987003, guid: 4db34b2ba4083f74a966fa5a58672aa9, type: 3}
-  HasCollider: 0
+  - {fileID: -3578582641699816866, guid: af5c8f3c81497b645aa6d4388e0f8274, type: 3}

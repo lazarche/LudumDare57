@@ -2,72 +2,44 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D rb;
-    [SerializeField] Transform groundCheck;
-    [SerializeField] LayerMask groundLayer;
+    Vector2 input = Vector2.zero; // Input vector for movement
+    public float moveSpeed = 5f; // Movement speed of the player
+    public float jumpForce = 10f; // Jump force
 
-    [Header("Movement Variables")]
-    [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float jumpHeight = 5f;
-    [SerializeField] float gravityScale = 5f;
-    [SerializeField] float fallGravityScale = 15f;
-    [SerializeField] float fallingTimerMod = 5;
+    private Rigidbody2D rb;
+    private bool isGrounded;
 
-    Vector2 input = Vector2.zero;
+    public Transform groundCheck; // Position to check if the player is grounded
+    public LayerMask groundLayer; // Ground layer mask
 
-    [Header("Internal Variables")]
-    [SerializeField] bool isGrounded = false;
-    [SerializeField] float fallingTimer = 0f;
-
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
-        input = new Vector2(Input.GetAxis("Horizontal"), 0);
+        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Jump();
     }
 
     private void FixedUpdate()
     {
-        CheckGrounded();
+        Move();
+    }
 
+    void Move()
+    {
         rb.linearVelocity = new Vector2(input.x * moveSpeed, rb.linearVelocity.y);
-
-        if (isGrounded)
-        {
-            rb.gravityScale = gravityScale;
-            float jumpForce = Mathf.Sqrt((jumpHeight + fallingTimer * fallingTimerMod) * (Physics.gravity.y * rb.gravityScale) * -2f) * rb.mass;
-            rb.AddForce(Vector2.up * (jumpForce ), ForceMode2D.Impulse);
-            Debug.Log("Jumping");
-        }
-
-        if (rb.linearVelocity.y > 0)
-        {
-            rb.gravityScale = gravityScale;
-            fallingTimer = 0f;
-        }
-        else
-        {
-            fallingTimer += Time.fixedDeltaTime;
-            rb.gravityScale = fallGravityScale;
-        }
-
     }
 
-    void CheckGrounded()
+    void Jump()
     {
-        Collider2D coillider = Physics2D.OverlapBox(groundCheck.position, new Vector2(transform.localScale.x * 0.9f, 0.1f), 0, groundLayer);
-        if (coillider != null)
-        {
-            isGrounded = true;
-        }
-        else
-        {
-            isGrounded = false;
-        }
-    }
+        isGrounded = Physics2D.OverlapBox(groundCheck.position, new Vector2(transform.localScale.x * 0.9f, 0.1f), 0, groundLayer);
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(groundCheck.position, new Vector2(transform.localScale.x * 0.9f, 0.1f));
+        if (isGrounded && Input.GetKeyDown(KeyCode.W))
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+        }
     }
 }
