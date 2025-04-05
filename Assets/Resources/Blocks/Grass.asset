@@ -16,3 +16,10 @@ MonoBehaviour:
   blockName: Grass
   sprites:
   - {fileID: -1347532211411968617, guid: 86a6247d8449fe5468508d29a4651a8e, type: 3}
+  - {fileID: 701321781, guid: 86a6247d8449fe5468508d29a4651a8e, type: 3}
+  - {fileID: -2016354208, guid: 86a6247d8449fe5468508d29a4651a8e, type: 3}
+  - {fileID: -1648394012, guid: 86a6247d8449fe5468508d29a4651a8e, type: 3}
+  - {fileID: -891200871, guid: 86a6247d8449fe5468508d29a4651a8e, type: 3}
+  - {fileID: 2134996147, guid: 86a6247d8449fe5468508d29a4651a8e, type: 3}
+  HasCollider: 1
+  edgeColor: {r: 0.21906318, g: 0.3679245, b: 0.11627802, a: 1}

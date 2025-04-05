@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dirt
   m_EditorClassIdentifier: 
   blockID: 2
-  startHeight: 10
+  startHeight: 4
   transitionCurve:
     serializedVersion: 2
     m_Curve:

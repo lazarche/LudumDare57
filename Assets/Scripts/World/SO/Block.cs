@@ -11,6 +11,7 @@ public class Block : ScriptableObject
     public bool HasCollider = true;
 
     List<Color[]> colors;
+    public Color edgeColor;
 
     public void LoadColors()
     {

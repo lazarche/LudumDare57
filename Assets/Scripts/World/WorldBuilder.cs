@@ -59,10 +59,10 @@ public class WorldBuilder : MonoBehaviour
 
                 int edgeMask = GetEdgeMask(chunk, x, y, current, cachedAround);
 
-                if ((edgeMask & 1) != 0) BlitToChunk(chunk.texture, GetEdgeOverlay(1), x, y, chunkTextureSize); // Top
-                if ((edgeMask & 2) != 0) BlitToChunk(chunk.texture, GetEdgeOverlay(2), x, y, chunkTextureSize); // Bottom
-                if ((edgeMask & 4) != 0) BlitToChunk(chunk.texture, GetEdgeOverlay(4), x, y, chunkTextureSize); // Left
-                if ((edgeMask & 8) != 0) BlitToChunk(chunk.texture, GetEdgeOverlay(8), x, y, chunkTextureSize); // Right
+                if ((edgeMask & 1) != 0) BlitToChunk(chunk.texture, GetEdgeOverlay(1), x, y, chunkTextureSize, current.edgeColor); // Top
+                if ((edgeMask & 2) != 0) BlitToChunk(chunk.texture, GetEdgeOverlay(2), x, y, chunkTextureSize, current.edgeColor); // Bottom
+                if ((edgeMask & 4) != 0) BlitToChunk(chunk.texture, GetEdgeOverlay(4), x, y, chunkTextureSize, current.edgeColor); // Left
+                if ((edgeMask & 8) != 0) BlitToChunk(chunk.texture, GetEdgeOverlay(8), x, y, chunkTextureSize, current.edgeColor); // Right
             }
         }
     }
@@ -119,7 +119,7 @@ public class WorldBuilder : MonoBehaviour
         }
     }
 
-    private void BlitToChunk(Color[] chunkTexture, Color[] sprite, int blockX, int blockY, int chunkTextureSize)
+    private void BlitToChunk(Color[] chunkTexture, Color[] sprite, int blockX, int blockY, int chunkTextureSize, Color edgeColor)
     {
         for (int i = 0; i < sprite.Length; i++)
         {
@@ -132,7 +132,7 @@ public class WorldBuilder : MonoBehaviour
             int index = globalX + globalY * chunkTextureSize;
 
             if (sprite[i].a > 0f) // Only draw non-transparent pixels
-                chunkTexture[index] = sprite[i];
+                chunkTexture[index] = edgeColor;
         }
     }
 

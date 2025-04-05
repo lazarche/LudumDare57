@@ -12,7 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce549903d3b0cc149abd6b6f716406db, type: 3}
   m_Name: DeepStone
   m_EditorClassIdentifier: 
-  id: 5
+  id: 4
   blockName: Deep Stone
   sprites:
   - {fileID: -2415594340604443673, guid: 452a83c112c04f04ca006ebab72bb778, type: 3}
+  - {fileID: -364441198, guid: 452a83c112c04f04ca006ebab72bb778, type: 3}
+  - {fileID: -690078378, guid: 452a83c112c04f04ca006ebab72bb778, type: 3}
+  - {fileID: 533396685, guid: 452a83c112c04f04ca006ebab72bb778, type: 3}
+  - {fileID: 1190301228, guid: 452a83c112c04f04ca006ebab72bb778, type: 3}
+  - {fileID: 1948067949, guid: 452a83c112c04f04ca006ebab72bb778, type: 3}
+  HasCollider: 1
+  edgeColor: {r: 0.103773594, g: 0.103773594, b: 0.103773594, a: 1}

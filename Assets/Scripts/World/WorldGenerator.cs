@@ -36,6 +36,12 @@ public class WorldGenerator : MonoBehaviour
             }
         }
 
+        if(chunk.position.y == 0)
+        {
+            for(int x = 0; x < WorldSettings.ChunkSize; x++)
+                chunk.blocks[x, WorldSettings.ChunkSize - 1] = 0;
+        }
+
         chunk.IsGenerated = true;
     }
 

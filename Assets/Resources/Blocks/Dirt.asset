@@ -16,6 +16,10 @@ MonoBehaviour:
   blockName: Dirt
   sprites:
   - {fileID: -8275502208090371910, guid: 93f7839788c82a845a636fb86c73c7a9, type: 3}
-  - {fileID: -2124614218, guid: 93f7839788c82a845a636fb86c73c7a9, type: 3}
-  - {fileID: 324107202, guid: 93f7839788c82a845a636fb86c73c7a9, type: 3}
-  - {fileID: -1376139911, guid: 93f7839788c82a845a636fb86c73c7a9, type: 3}
+  - {fileID: 787845058, guid: 93f7839788c82a845a636fb86c73c7a9, type: 3}
+  - {fileID: -1226884304, guid: 93f7839788c82a845a636fb86c73c7a9, type: 3}
+  - {fileID: -1332538109, guid: 93f7839788c82a845a636fb86c73c7a9, type: 3}
+  - {fileID: 663289922, guid: 93f7839788c82a845a636fb86c73c7a9, type: 3}
+  - {fileID: 245725178, guid: 93f7839788c82a845a636fb86c73c7a9, type: 3}
+  HasCollider: 1
+  edgeColor: {r: 0.18867922, g: 0.10005831, b: 0.08454965, a: 1}
